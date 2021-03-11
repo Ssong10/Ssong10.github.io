@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Ssong10 | modal</title><meta name="next-head-count" content="3"/><link rel="preload" href="/_next/static/css/958f9aa17d736a23eabc.css" as="style"/><link rel="stylesheet" href="/_next/static/css/958f9aa17d736a23eabc.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-93d60e9adf4939325b41.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.9d524150d48315f49e80.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.0d3242e40eb08521ee3c.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-e102e12aa7900409b95a.js" as="script"/><link rel="preload" href="/_next/static/chunks/d91e9ae9.20d660956212d6f89ab0.js" as="script"/><link rel="preload" href="/_next/static/chunks/fac50134203cbc545d54cf72a9b94a4ba28f5ae7.342fd6af1a134f6a14aa.js" as="script"/><link rel="preload" href="/_next/static/chunks/a563137747c90529daf69d1aeff48379e45110fd.10fc0073105d823b0d53.js" as="script"/><link rel="preload" href="/_next/static/chunks/3c054efa82999c49f598079c6742f61697ff1d2b.c2a9ab5d74854aa7bccb.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/component/%5Bid%5D-fbf3b32e8896d89db356.js" as="script"/><style id="__jsx-109417478">.code__container.jsx-109417478{margin:auto;width:80%;}iframe.jsx-109417478{width:100%;height:100%;}pre.jsx-109417478{width :100%;height :400px;display:none;box-sizing:border-box;}.show.jsx-109417478{display:block;}.btn.jsx-109417478{border:1px solid #9ea3a3;width:50px;padding:8px 6px;margin:5px;background-color:#e4e4e9;border-radius:5px;cursor:pointer;}.btn.select.jsx-109417478{background-color:#babae3;}.code_preview.jsx-109417478{position:relative;width :100%;height :500px;border:1px solid black;}.code_preview.jsx-109417478 iframe.jsx-109417478{width :100%;height:100%;}.code_preview.jsx-109417478 .new_link.jsx-109417478{position:absolute;top:10px;right:10px;width :10px;height:10px;background-color:gray;}@media screen and (max-width:767px){.code__container.jsx-109417478{width:100%;}}</style></head><body><div id="__next"><header id="nav"><div class="side-button"><svg viewBox="0 0 100 80" width="20" height="20"><rect width="100" height="18"></rect><rect y="35" width="100" height="18"></rect><rect y="70" width="100" height="18"></rect></svg></div><i class="side-button fas fa-bars" aria-hidden="true"></i><span class="main-title">Ssong10</span><span class="mobile-title">[ component ] modal</span><div class="nav-links"><div class="nav-sub mobile-home"><span>Ssong10</span></div><div class="nav-sub"><span class="">OS</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><span>Operation System</span></div><div class="nav-item "><span>OOP</span></div><div class="nav-item "><span>프로세스&amp;스레드</span></div><div class="nav-item "><span>멀티프로세스&amp;스레드</span></div><div class="nav-item "><span>HTTP</span></div><div class="nav-item "><span>Protocol</span></div></div></div></div><div class="nav-sub"><span class="">JS</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><span>기본</span></div><div class="nav-item "><span>명령형과 선언형</span></div><div class="nav-item "><span>React Hook 구현</span></div><div class="nav-item "><span>동기&amp;비동기</span></div><div class="nav-item "><span>비동기처리</span></div></div></div></div><div class="nav-sub"><span class="">HTML</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><span>브라우저 렌더링</span></div><div class="nav-item "><span>Reflow &amp; Repaint</span></div></div></div></div><div class="nav-sub"><span class="">etc</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><span>git</span></div><div class="nav-item "><span>입출력</span></div><div class="nav-item "><span>DataBase</span></div><div class="nav-item "><span>DeadLock</span></div></div></div></div><div class="nav-sub"><span class="active">component</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><span>loading</span></div><div class="nav-item "><span>loading2</span></div><div class="nav-item active"><span>modal</span></div><div class="nav-item "><span>slide</span></div><div class="nav-item "><span>throttle &amp; debounce</span></div><div class="nav-item "><span>Infinite Scroll - 1</span></div><div class="nav-item "><span>Infinite Scroll - 2</span></div></div></div></div></div></header><div class="container"><div class="jsx-109417478 code__container"><h1 class="jsx-109417478">modal</h1><div class="jsx-109417478 description"><div><blockquote>
+<p>전체화면으로 테스트하는 것이 좋습니다</p>
+</blockquote>
+</div></div><div class="jsx-109417478 tab__wrap"><button class="jsx-109417478 btn select">html</button><button class="jsx-109417478 btn">js</button><button class="jsx-109417478 btn">css</button></div><div class="jsx-109417478 form__wrap"><pre id="html" class="jsx-109417478 show"><code class="jsx-109417478 language-html">&lt;button class=&quot;open__btn&quot;&gt;열기&lt;/button&gt;
+&lt;div class=&quot;modal hide&quot;&gt;
+  &lt;div class=&quot;modal__body&quot;&gt;
+    &lt;div class=&quot;close__btn&quot;&gt;❌&lt;/div&gt;
+    &lt;div class=&quot;modal__header&quot;&gt;
+      Modal
+    &lt;/div&gt;
+    &lt;div class=&quot;modal__content&quot;&gt;
+      &lt;p&gt;간략히 설명할 수 있는 모달입니다.
+      미리보기나 간단한 설명이 담겨져 있을 수 있고,
+      x 버튼을 클릭하거나, 
+      모달 바깥 화면을 클릭하거나,
+      혹은 esc 클릭하게 되면 모달창이 닫힙니다.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre><pre id="js" class="jsx-109417478"><code class="jsx-109417478 language-js">class Modal {
+  constructor(){
+    this.$modal = document.querySelector(&#x27;.modal&#x27;)
+    document.addEventListener(&#x27;keydown&#x27;, e=&gt;{
+      if (e.keyCode === 27){
+        this.closeModal()
+      }
+    })
+    this.$modal.addEventListener(&#x27;click&#x27;, e=&gt; {
+      if (e.target.classList.contains(&#x27;close__btn&#x27;)){
+        this.closeModal()
+      }
+      if (e.target.classList.contains(&#x27;modal&#x27;)){
+        this.closeModal()
+      }
+    })
+  }
+  openModal() {
+    this.$modal.classList.remove(&#x27;hide&#x27;)
+  }
+  closeModal() {
+    this.$modal.classList.add(&#x27;hide&#x27;)
+  }
+}
+
+const modal = new Modal()
+const $openBtn = document.querySelector(&#x27;.open__btn&#x27;)
+$openBtn.addEventListener(&#x27;click&#x27;, ()=&gt;modal.openModal())</code></pre><pre id="css" class="jsx-109417478"><code class="jsx-109417478 language-css">.open__btn {
+  margin: 30px;
+  background-color: #9e9e9e;
+  color : white;
+  border-radius: 5px;
+  padding : 8px 16px;
+  cursor: pointer;
+}
+
+.modal {
+  display:flex;
+  position:fixed;
+  left: 0;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  justify-content : center;
+  align-items:center;
+}
+
+.modal__body {
+  position: relative;
+  width: 50%;
+  height: 40%;
+  background-color : white;
+  padding: 16px;
+  border-radius:10px;
+}
+
+.close__btn {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal__header {
+  padding: 16px 0px;
+  font-size: 24px;
+  text-align: center;
+  color : #999999;
+  border-bottom: 1px solid gray;
+}
+
+.modal__content {
+  margin: 10% 16px;
+}
+.modal__content p{
+  white-space: pre-line;
+}
+
+.hide {
+  display:none;
+}</code></pre></div><div class="jsx-109417478 code_preview"><a target="_blank" href="" class="jsx-109417478 new_link"><div title="새 창으로 열기" class="jsx-109417478 open_preview"></div></a><iframe src="" class="jsx-109417478"></iframe></div></div></div><footer><div class="links"><a target="_blank" href="https://github.com/ssong10"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg></a><a target="_blank" href="https://www.instagram.com/2_seung10/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 49.471c67.266 0 75.233.257 101.8 1.469 24.562 1.121 37.9 5.224 46.778 8.674a78.052 78.052 0 0128.966 18.845 78.052 78.052 0 0118.845 28.966c3.45 8.877 7.554 22.216 8.674 46.778 1.212 26.565 1.469 34.532 1.469 101.8s-.257 75.233-1.469 101.8c-1.121 24.562-5.225 37.9-8.674 46.778a83.427 83.427 0 01-47.811 47.811c-8.877 3.45-22.216 7.554-46.778 8.674-26.56 1.212-34.527 1.469-101.8 1.469s-75.237-.257-101.8-1.469c-24.562-1.121-37.9-5.225-46.778-8.674a78.051 78.051 0 01-28.966-18.845 78.053 78.053 0 01-18.845-28.966c-3.45-8.877-7.554-22.216-8.674-46.778-1.212-26.564-1.469-34.532-1.469-101.8s.257-75.233 1.469-101.8c1.121-24.562 5.224-37.9 8.674-46.778a78.052 78.052 0 0118.847-28.967 78.053 78.053 0 0128.966-18.845c8.877-3.45 22.216-7.554 46.778-8.674 26.565-1.212 34.532-1.469 101.8-1.469m0-45.391c-68.418 0-77 .29-103.866 1.516-26.815 1.224-45.127 5.482-61.151 11.71a123.488 123.488 0 00-44.62 29.057A123.488 123.488 0 0017.3 90.982c-6.223 16.025-10.481 34.337-11.7 61.152C4.369 179 4.079 187.582 4.079 256s.29 77 1.521 103.866c1.224 26.815 5.482 45.127 11.71 61.151a123.489 123.489 0 0029.057 44.62 123.486 123.486 0 0044.62 29.057c16.025 6.228 34.337 10.486 61.151 11.71 26.87 1.226 35.449 1.516 103.866 1.516s77-.29 103.866-1.516c26.815-1.224 45.127-5.482 61.151-11.71a128.817 128.817 0 0073.677-73.677c6.228-16.025 10.486-34.337 11.71-61.151 1.226-26.87 1.516-35.449 1.516-103.866s-.29-77-1.516-103.866c-1.224-26.815-5.482-45.127-11.71-61.151a123.486 123.486 0 00-29.057-44.62A123.487 123.487 0 00421.018 17.3c-16.025-6.223-34.337-10.481-61.152-11.7C333 4.369 324.418 4.079 256 4.079z"></path><path d="M256 126.635A129.365 129.365 0 10385.365 256 129.365 129.365 0 00256 126.635zm0 213.338A83.973 83.973 0 11339.974 256 83.974 83.974 0 01256 339.973z"></path><circle cx="390.476" cy="121.524" r="30.23"></circle></svg></a></div><div><small>Ssong10</small></div><div><small>leesy1403@naver.com</small></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"params":{"id":"modal"},"code":{"css":".open__btn {\n  margin: 30px;\n  background-color: #9e9e9e;\n  color : white;\n  border-radius: 5px;\n  padding : 8px 16px;\n  cursor: pointer;\n}\n\n.modal {\n  display:flex;\n  position:fixed;\n  left: 0;\n  top:0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.2);\n  justify-content : center;\n  align-items:center;\n}\n\n.modal__body {\n  position: relative;\n  width: 50%;\n  height: 40%;\n  background-color : white;\n  padding: 16px;\n  border-radius:10px;\n}\n\n.close__btn {\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n\n.modal__header {\n  padding: 16px 0px;\n  font-size: 24px;\n  text-align: center;\n  color : #999999;\n  border-bottom: 1px solid gray;\n}\n\n.modal__content {\n  margin: 10% 16px;\n}\n.modal__content p{\n  white-space: pre-line;\n}\n\n.hide {\n  display:none;\n}","description":"\u003e 전체화면으로 테스트하는 것이 좋습니다\n","html":"\u003cbutton class=\"open__btn\"\u003e열기\u003c/button\u003e\n\u003cdiv class=\"modal hide\"\u003e\n  \u003cdiv class=\"modal__body\"\u003e\n    \u003cdiv class=\"close__btn\"\u003e❌\u003c/div\u003e\n    \u003cdiv class=\"modal__header\"\u003e\n      Modal\n    \u003c/div\u003e\n    \u003cdiv class=\"modal__content\"\u003e\n      \u003cp\u003e간략히 설명할 수 있는 모달입니다.\n      미리보기나 간단한 설명이 담겨져 있을 수 있고,\n      x 버튼을 클릭하거나, \n      모달 바깥 화면을 클릭하거나,\n      혹은 esc 클릭하게 되면 모달창이 닫힙니다.\n      \u003c/p\u003e\n    \u003c/div\u003e\n  \u003c/div\u003e\n\u003c/div\u003e","js":"class Modal {\n  constructor(){\n    this.$modal = document.querySelector('.modal')\n    document.addEventListener('keydown', e=\u003e{\n      if (e.keyCode === 27){\n        this.closeModal()\n      }\n    })\n    this.$modal.addEventListener('click', e=\u003e {\n      if (e.target.classList.contains('close__btn')){\n        this.closeModal()\n      }\n      if (e.target.classList.contains('modal')){\n        this.closeModal()\n      }\n    })\n  }\n  openModal() {\n    this.$modal.classList.remove('hide')\n  }\n  closeModal() {\n    this.$modal.classList.add('hide')\n  }\n}\n\nconst modal = new Modal()\nconst $openBtn = document.querySelector('.open__btn')\n$openBtn.addEventListener('click', ()=\u003emodal.openModal())"}},"__N_SSG":true},"page":"/component/[id]","query":{"id":"modal"},"buildId":"TlHMYA10z0KkVrFslYkLy","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-28654a8145d7603786fc.js"></script><script src="/_next/static/chunks/main-93d60e9adf4939325b41.js" async=""></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.9d524150d48315f49e80.js" async=""></script><script src="/_next/static/chunks/commons.0d3242e40eb08521ee3c.js" async=""></script><script src="/_next/static/chunks/pages/_app-e102e12aa7900409b95a.js" async=""></script><script src="/_next/static/chunks/d91e9ae9.20d660956212d6f89ab0.js" async=""></script><script src="/_next/static/chunks/fac50134203cbc545d54cf72a9b94a4ba28f5ae7.342fd6af1a134f6a14aa.js" async=""></script><script src="/_next/static/chunks/a563137747c90529daf69d1aeff48379e45110fd.10fc0073105d823b0d53.js" async=""></script><script src="/_next/static/chunks/3c054efa82999c49f598079c6742f61697ff1d2b.c2a9ab5d74854aa7bccb.js" async=""></script><script src="/_next/static/chunks/pages/component/%5Bid%5D-fbf3b32e8896d89db356.js" async=""></script><script src="/_next/static/TlHMYA10z0KkVrFslYkLy/_buildManifest.js" async=""></script><script src="/_next/static/TlHMYA10z0KkVrFslYkLy/_ssgManifest.js" async=""></script></body></html>
