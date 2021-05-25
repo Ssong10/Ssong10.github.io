@@ -1,0 +1,236 @@
+<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/><script async="" src="https://kit.fontawesome.com/17820a52a0.js" crossorigin="anonymous"></script><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Ssong10 | Webpack 이해와 설정</title><meta name="next-head-count" content="3"/><link rel="preload" href="/_next/static/css/b7aff589bc3f251c5423.css" as="style"/><link rel="stylesheet" href="/_next/static/css/b7aff589bc3f251c5423.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-3462db42ddf64824c665.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.9d524150d48315f49e80.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.0d3242e40eb08521ee3c.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-d6b9adca8a08a181a345.js" as="script"/><link rel="preload" href="/_next/static/chunks/fac50134203cbc545d54cf72a9b94a4ba28f5ae7.ff2a065ed04022de0792.js" as="script"/><link rel="preload" href="/_next/static/chunks/3c054efa82999c49f598079c6742f61697ff1d2b.626d3ab021131eea828e.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/posts/%5B...id%5D-11788b8a639362193f16.js" as="script"/></head><body><div id="__next"><header id="nav"><i class="side-button fas fa-bars"></i><span class="main-title">Ssong10</span><span class="mobile-title">[ JS ] Webpack 이해와 설정</span><div class="nav-links"><div class="nav-sub mobile-home"><span>Ssong10</span></div><div class="nav-sub"><span class="">OS</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><a href="/posts/OS/Operation System"><span>Operation System</span></a></div><div class="nav-item "><a href="/posts/OS/OOP"><span>OOP</span></a></div><div class="nav-item "><a href="/posts/OS/프로세스&amp;스레드"><span>프로세스&amp;스레드</span></a></div><div class="nav-item "><a href="/posts/OS/멀티프로세스&amp;스레드"><span>멀티프로세스&amp;스레드</span></a></div><div class="nav-item "><a href="/posts/OS/HTTP"><span>HTTP</span></a></div><div class="nav-item "><a href="/posts/OS/Protocol"><span>Protocol</span></a></div></div></div></div><div class="nav-sub"><span class="active">JS</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><a href="/posts/JS/기본"><span>기본</span></a></div><div class="nav-item "><a href="/posts/JS/명령형과 선언형"><span>명령형과 선언형</span></a></div><div class="nav-item "><a href="/posts/JS/React Hook 구현"><span>React Hook 구현</span></a></div><div class="nav-item "><a href="/posts/JS/동기&amp;비동기"><span>동기&amp;비동기</span></a></div><div class="nav-item "><a href="/posts/JS/비동기처리"><span>비동기처리</span></a></div><div class="nav-item active"><a href="/posts/JS/Webpack 이해와 설정"><span>Webpack 이해와 설정</span></a></div></div></div></div><div class="nav-sub"><span class="">HTML</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><a href="/posts/HTML/브라우저 렌더링"><span>브라우저 렌더링</span></a></div><div class="nav-item "><a href="/posts/HTML/Reflow &amp; Repaint"><span>Reflow &amp; Repaint</span></a></div></div></div></div><div class="nav-sub"><span class="">etc</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><a href="/posts/etc/git"><span>git</span></a></div><div class="nav-item "><a href="/posts/etc/입출력"><span>입출력</span></a></div><div class="nav-item "><a href="/posts/etc/DataBase"><span>DataBase</span></a></div><div class="nav-item "><a href="/posts/etc/DeadLock"><span>DeadLock</span></a></div></div></div></div><div class="nav-sub"><span class="">component</span><div class="nav-items-wrap"><div class="nav-item-list"><div class="nav-item "><a href="/component/loading"><span>loading</span></a></div><div class="nav-item "><a href="/component/loading2"><span>loading2</span></a></div><div class="nav-item "><a href="/component/modal"><span>modal</span></a></div><div class="nav-item "><a href="/component/slide"><span>slide</span></a></div><div class="nav-item "><a href="/component/throttle &amp; debounce"><span>throttle &amp; debounce</span></a></div><div class="nav-item "><a href="/component/Infinite Scroll - 1"><span>Infinite Scroll - 1</span></a></div><div class="nav-item "><a href="/component/Infinite Scroll - 2"><span>Infinite Scroll - 2</span></a></div></div></div></div></div></header><section class="side-bar"><p><span class="side-bar-title">Webpack 이해와 설정</span></p><ul class="anchor-list"><li><a class="anchor-tag h1_tags" href="#Webpack">Webpack</a></li><li><a class="anchor-tag h2_tags" href="#Webpack 을 사용하는 이유">Webpack 을 사용하는 이유</a></li><li><a class="anchor-tag h2_tags" href="#Install">Install</a></li><li><a class="anchor-tag h2_tags" href="#webpack 기본 명령어">webpack 기본 명령어</a></li><li><a class="anchor-tag h2_tags" href="#webpack.config.js">webpack.config.js</a></li><li><a class="anchor-tag h2_tags" href="#npm script 사용">npm script 사용</a></li><li><a class="anchor-tag h2_tags" href="#modules">modules</a></li><li><a class="anchor-tag h3_tags" href="#1. css-loader">1. css-loader</a></li><li><a class="anchor-tag h3_tags" href="#2. style-loader">2. style-loader</a></li><li><a class="anchor-tag h3_tags" href="#3. url-loader">3. url-loader</a></li><li><a class="anchor-tag h3_tags" href="#4. babel">4. babel</a></li><li><a class="anchor-tag h2_tags" href="#plugins">plugins</a></li><li><a class="anchor-tag h3_tags" href="#1. HtmlWebpackPlugin">1. HtmlWebpackPlugin</a></li><li><a class="anchor-tag h3_tags" href="#2. mini-css-extract-plugin">2. mini-css-extract-plugin</a></li><li><a class="anchor-tag h2_tags" href="#Referrence">Referrence</a></li></ul></section><main class="container"><div class="markdown"><h1 id="Webpack"><a class="header-anchor" href="#Webpack">#</a>Webpack</h1>
+<p><a href="https://npmjs.com/package/webpack"><img src="https://camo.githubusercontent.com/dcf3110e99c354b13ab7d252b5141df6f9c69710b4d1a6c5194089a5c7b82ff1/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f7765627061636b2e737667" alt="npm"></a></p>
+<h2 id="Webpack 을 사용하는 이유"><a class="header-anchor" href="#Webpack 을 사용하는 이유">#</a>Webpack 을 사용하는 이유</h2>
+<p>작업, 프로젝트를 진행하면서 코드의 재사용성, 유지보수 등을 위하여 모듈, 기능별로 코드를 관리하는 것이 중요하고 편하다고 생각이 될겁니다.</p>
+<p>하나의 개념( 기능이나 컴포넌트 ) 를 하나의 파일에서 작업을 하는 것이 자연스럽고, 클린 코드에 가깝다고 생각하지만…!</p>
+<p>그러기 위하여 각각의 파일을 브라우저에 로딩을 해야하고 그만큼의 네트워크 비용이 발생하는 단점도 존재합니다.</p>
+<p>더군다나, 그 파일은 서로의 스코프를 침범하지 않아야하고 변수 충돌을 위해서 신경써야하고, 순서에 맞게 로딩을 해야하는 번거로움이 있습니다.</p>
+<p>이러한 것들을 해결하기 위하여 여러 의존 관계에 있는 모듈들을 js 파일 하나로 번들링 하게 되는 <code>정적 모듈 번들러</code> Webpack 이 있습니다 !</p>
+<h2 id="Install"><a class="header-anchor" href="#Install">#</a>Install</h2>
+<p>webpack 패키지와 웹팩 터미널 도구인 <code>webpack-cli</code> 를 설치합니다.</p>
+<pre><code class="language-bash">$ npm install -D webpack webpack-cli
+</code></pre>
+<p>설치 후에</p>
+<pre><code class="language-bash">$ node_modules/.bin/webpack --help
+</code></pre>
+<p>명령어를 이용하여 실행가능한 명령어와 사용방법을 확인할 수 있습니다.</p>
+<h2 id="webpack 기본 명령어"><a class="header-anchor" href="#webpack 기본 명령어">#</a>webpack 기본 명령어</h2>
+<ol>
+<li><code>--mode</code> : 실행환경을 선택하여 빌드 할 수 있다</li>
+</ol>
+<ul>
+<li><code>development</code> , <code>production</code>, <code>none</code> 이 있고</li>
+<li>보통 <code>process.env.NODE_ENV</code> 같은 식으로 기본 환경설정 값으로 사용하기도 한다.</li>
+</ul>
+<ol start="2">
+<li><code>--entry</code> : 시작점 경로를 지정하는 옵션이다 가장 밑바탕 기본이 되는 js, ts 를 타겟으로 한다</li>
+<li><code>--o</code> , <code>--output-path</code> :  번들링 결과물이 위치할 path 입니다.</li>
+</ol>
+<pre><code class="language-bash">$ node_modules/.bin/webpack --mode development --entry ./src/app.js -o dist
+</code></pre>
+<ul>
+<li>위의 명령어 대로 입력을 하게 된다면 <code>src/app.js</code>과 거기서 사용되는 모듈등이 <code>dist</code> 폴더에 <code>main.js</code> 로 번들링 됩니다.</li>
+</ul>
+<ol start="4">
+<li><code>--config</code> : 웹팩 설정파일의 경로를 지정할수 있는데 기본 파일명이 <code>webpack.config.js</code> 이다. webpack.config.js 파일을 통하여 설정을 해줄 수 있습니다.</li>
+<li><code>--watch</code> : 번들링하는 파일, 모듈에 변화가 있으면 감지하여 새로 번들링을 해주게 됩니다. 개발을 하면서 편하게 도움이 됩니다.</li>
+</ol>
+<h2 id="webpack.config.js"><a class="header-anchor" href="#webpack.config.js">#</a>webpack.config.js</h2>
+<pre><code class="language-js">const path = require(&quot;path&quot;)
+
+module.exports = {
+  mode: &quot;development&quot;,
+  entry: {
+    main: &quot;./src/app.js&quot;,
+  },
+  output: {
+    filename: &quot;[name].js&quot;,
+    path: path.resolve(&quot;./dist&quot;),
+  },
+}
+</code></pre>
+<ul>
+<li>mode, entry 는 기존 명령어와 동일합니다.</li>
+<li>output 에서 filename 은 지정해 줄 수 있지만 <code>[name]</code> 을 사용하게 되면 entry 에서 key 값으로 들어가있는 main으로 filename 이 생성되는 원리입니다.</li>
+<li>output의 path는 절대경로를 사용하기 때문에 <code>path</code> 모듈을 통해서 절대경로를 참조해 줍니다.</li>
+</ul>
+<h2 id="npm script 사용"><a class="header-anchor" href="#npm script 사용">#</a>npm script 사용</h2>
+<ul>
+<li>package.json 을 이용하기 위해서 npm init 을 사용해 주게 됩니다.</li>
+<li>해당 스크립트는 npm run build 와 같은 방식으로 사용할 수 있습니다</li>
+<li>npm run watch 를 하면 변화가 일어날때마다 build 가 됩니다.</li>
+</ul>
+<pre><code class="language-json">{
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;./node_modules/.bin/webpack&quot;,
+    &quot;watch&quot;: &quot;./node_modules/.bin/webpack --watch&quot;
+  }
+}
+</code></pre>
+<blockquote>
+<p>기본적인 작업은 끝났습니다. 이제는 <code>npm run build</code> 명령어로 설정파일에 따라 번들링 하게 됩니다.</p>
+</blockquote>
+<blockquote>
+<p>지금까지는 js 파일에 대하여 번들링을 하는 과정을 거치게 되었습니다.</p>
+<p>추가적으로 필요한 modules 과 plugins 에 대해서 알아보게 될텐데
+webpack.config.js 와 함께 보면서 공부하는 편이 좋습니다.</p>
+</blockquote>
+<h2 id="modules"><a class="header-anchor" href="#modules">#</a>modules</h2>
+<pre><code class="language-bash">$ npm install css-loader style-loader url-loader
+</code></pre>
+<h3 id="1. css-loader"><a class="header-anchor" href="#1. css-loader">#</a>1. css-loader</h3>
+<ul>
+<li>webpack 에서 <code>.css</code> 파일을 읽어들이기 위해 사용되는 로더</li>
+</ul>
+<h3 id="2. style-loader"><a class="header-anchor" href="#2. style-loader">#</a>2. style-loader</h3>
+<ul>
+<li>HTML 의 header에 style 태그를 이용하여 DOM 에 CSS를 적용해주는 로더</li>
+<li>기본적으로 style-loader, css-loader 를 같이 사용하는 편이다.</li>
+</ul>
+<pre><code class="language-js">  // webpack.config.js
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          // 개발환경에서는 css-loader에 의해 변경된 css를 적용하기 위해 style-loader를 사용합니다
+          // 프로덕션 환경에서는 별도의 CSS파일을 추출하는 플러그인으로 적용하여 다른 loader 를 사용합니다.
+          process.env.NODE_ENV === &quot;production&quot;
+          ? MiniCssExtractPlugin.loader // 프로덕션 환경
+          : &quot;style-loader&quot;, // 개발 환경
+          &quot;css-loader&quot;,
+        ],
+      },
+    ]
+  }
+</code></pre>
+<h3 id="3. url-loader"><a class="header-anchor" href="#3. url-loader">#</a>3. url-loader</h3>
+<ul>
+<li>background-image 등에서 사용되는 파일들을 불러오는데 쓰인다.</li>
+<li>용량에 따라서 설정을 달리 할 수 있는데, limit 으로 설정한 byte 이하의 이미지 등은 base64로 인코딩하여 javascript 문자열로 변경하여 로딩을 하게 되고 크보다 큰 용량은 그냥 넘겨주게 된다.</li>
+</ul>
+<pre><code class="language-js">  // webpack.config.js
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif|svg)$/, // png, jpg, gif, svg 확장자로 끝나는 파일들은 url-loader로 처리하겠다는 의미
+        loader: &quot;url-loader&quot;, // 용량이 적은 파일들은 Data URI Scheme을 이용해서 Base64로 인코딩하여 문자열 형태로 소스코드에 넣는 방식을 이용한다.
+        options: {
+          // publicPath: './dist/', // 아까는 index.html 파일이 src 폴더 위에 있었지만 HtmlWebpackPlugin 설치 후에는 src 폴더 안으로 들어갔기 때문에 빌드된 결과물이 dist 폴더안에 index.html이 자동으로 생기므로 앞에 prefix로 ./dist/ 경로를 붙이지 않아도 된다.
+          name: &quot;[name].[ext]?[hash]&quot;,
+          limit: 20000, // 파일 용량 세팅(20[KB]로 세팅함)
+          // 이미지 파일을 처리할 때 20[KB] 미만의 파일들은 url-loader를 이용해서 Base64로 인코딩하여 자바스크립트 문자열로 변환한다.
+          // 만약 20[KB] 이상인 경우 file-loader를 이용하게 된다.
+          // 그래서 20[KB] 이하인 nyancat.jpg는 빌드된 main.js 파일 안에 url로 처리되어 들어간다.
+          // 20[KB] 이상인 bg.png는 file-loader로 처리되어 bg.png 파일이 dist 폴더 안에 들어오게 된다.
+        },
+      },
+    ]
+  }
+</code></pre>
+<h3 id="4. babel"><a class="header-anchor" href="#4. babel">#</a>4. babel</h3>
+<pre><code class="language-bash">$ npm install babel-loader @babel/core @babel/preset-env
+</code></pre>
+<ul>
+<li>각각 브라우저 마다 매년 새롭게 도입되는 ES6+ 의 지원비율이 제각각이다.</li>
+<li>IE 를 비롯한 구형 브라우저에서는 ES6+ 문법이 제대로 작동이 안될 수도 있고, 모듈 로더가 작동이 잘 안될 수도 있다.</li>
+<li>사용자가 그런것들을 고려하면서 코드를 작성하기에 불편함이 많기에 각각의 브라우저의 지원사항에 맞게 맞춰서 모듈 번들러를 사용하여 동작하게 할 수 있다.</li>
+<li>Arrow Function, optional chaining 등을 ES5 이하의 문법으로 번들링해주는 로더이다.</li>
+<li><code>babel.config.js</code> , <code>.babelrc</code> 등의 파일에 설정을 해준다.</li>
+<li>물론 <code>webpack.config.js</code> 에서도 설정해주어야한다.</li>
+</ul>
+<pre><code class="language-js">  // webpack.config.js
+  const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+  
+  module: {
+    rules: [
+      {
+        // 다음과 같이 babel-loader로 webpack과 함께 사용하면 훨씬 단순하고 자동화된 프론트엔드 개발환경을 갖출 수 있다.
+        test: /\.js$/,
+        loader: &quot;babel-loader&quot;,
+        exclude: /node_modules/,
+      },
+    ],
+  }
+</code></pre>
+<pre><code class="language-js">  // babel.config.js
+  const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+
+  module.exports = {
+    presets: [
+      ['@babel/preset-env', {
+        targets: {
+          chrome: '79',
+          ie: '11' // IE11에서도 동작하도록 설정
+          // 참고로 IE11에서 async/await 나 generator 구문을 사용하기 위해서는 regenerator-runtime 라이브러리를 추가로 설치해야 한다.
+        },
+        // babel이 변환하지 못하는 코드는 polyfill이라 부르는 코드조각을 불러와 결과물에 로딩해서 해결한다.
+        useBuiltIns: 'usage', // polyfill 사용 여부 설정
+        corejs: {
+          version: 2 // polyfill 버전 지정
+        }
+      }]
+    ]
+  }
+</code></pre>
+<h2 id="plugins"><a class="header-anchor" href="#plugins">#</a>plugins</h2>
+<ul>
+<li>plugin 들은 써드 파티 패키지로 동작하게 됩니다. <code>module</code>을 이용하여 build 하는 과정을 거친 후, 후처리 하는 동안 작동하고, 사용되게 됩니다.</li>
+</ul>
+<h3 id="1. HtmlWebpackPlugin"><a class="header-anchor" href="#1. HtmlWebpackPlugin">#</a>1. HtmlWebpackPlugin</h3>
+<p>기본적으로 <code>Html</code> 파일이 번들링이 안되기 때문에 plugin 으로 처리해 주게 된다.</p>
+<pre><code class="language-bash">$ npm install -D html-webpack-plugin
+</code></pre>
+<p>node 에서 설치 후에 webpack.config.js 설정을 한 후 실행하게 된다.</p>
+<pre><code class="language-js">  // webpack.config.js
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: &quot;./src/index.html&quot;,
+      templateParameters: {
+        env: process.env.NODE_ENV === &quot;development&quot; ? &quot;개발&quot; : &quot;배포&quot;,
+      },
+    }),
+  ]
+</code></pre>
+<blockquote>
+<p>./src/index.html</p>
+</blockquote>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Webpack Test (&lt;%= env %&gt;)&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>위와 같이 예시로</p>
+<ul>
+<li>title을 ejs 문법을 사용하여 작성한 Html 파일을 <code>templateParameters</code> 와 연동시켜서 env 변수값을 이용하여 동적으로 생성할 수 있다.</li>
+<li>또한 기본적으로는 기본적인 로딩 스크립트가 있어야 하지만 Webpack 에서 빌드한 결과물을 자동으로 주입해주기 때문에 제거하였다.</li>
+</ul>
+<h3 id="2. mini-css-extract-plugin"><a class="header-anchor" href="#2. mini-css-extract-plugin">#</a>2. mini-css-extract-plugin</h3>
+<ul>
+<li>스타일시트 코드만 뽑아서 별도의 CSS파일로 만들어 역할에 따라 파일을 분리해 줍니다.</li>
+<li>CSS를 별도 파일로 뽑아내는 플러그인 입니다.</li>
+<li><code>production</code> mode에는 plugin 에 추가해 주고 해당 모드일 때 <code>.css</code> loader 에서도 작동하게 됩니다.</li>
+</ul>
+<pre><code class="language-bash">$ npm install -D mini-css-extract-plugin
+</code></pre>
+<pre><code class="language-js">  // webpack.config.js
+  plugins: [
+    // MiniCssExtractPlugin은 JS에서 CSS 코드를 뽑아내는 것이기 때문에 굳이 development 환경에서는 JS 파일 하나로 빌드하는 것이 조금 더 빠르기 때문에 굳이 이 플러그인을 쓸 필요가 없다.
+    // production 환경에서만 플러그인이 실행되도록 삼항 연산자로 작성하자.
+    ...(process.env.NODE_ENV === &quot;production&quot;
+      ? [new MiniCssExtractPlugin({ filename: &quot;[name].css&quot; })]
+    : []),
+  ]
+</code></pre>
+<h2 id="Referrence"><a class="header-anchor" href="#Referrence">#</a>Referrence</h2>
+<p><a href="https://github.com/webpack/webpack#install">webpack github</a></p>
+<p><a href="https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html">프론트엔드 개발 환경의 의해 : 웹팩</a></p>
+<p><a href="https://kschoi.github.io/webpack/webpack-basic/">webpack 기본 이해하기</a></p>
+<p><a href="https://poiemaweb.com/es6-babel-webpack-1">babel</a></p>
+<p><a href="https://github.com/wally-wally/Frontend_Development_Environment">Wally-wally</a></p>
+</div></main><footer><div class="links"><a target="_blank" href="https://github.com/ssong10"><i class="fab fa-github"></i></a><a target="_blank" href="https://www.instagram.com/2_seung10/"><i class="fab fa-instagram"></i></a></div><div><small>Ssong10</small></div><div><small>leesy1403@naver.com</small></div></footer></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"params":{"id":["JS","Webpack 이해와 설정"]},"data":"\u003ch1 id=\"Webpack\"\u003e\u003ca class=\"header-anchor\" href=\"#Webpack\"\u003e#\u003c/a\u003eWebpack\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://npmjs.com/package/webpack\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/dcf3110e99c354b13ab7d252b5141df6f9c69710b4d1a6c5194089a5c7b82ff1/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f7765627061636b2e737667\" alt=\"npm\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2 id=\"Webpack 을 사용하는 이유\"\u003e\u003ca class=\"header-anchor\" href=\"#Webpack 을 사용하는 이유\"\u003e#\u003c/a\u003eWebpack 을 사용하는 이유\u003c/h2\u003e\n\u003cp\u003e작업, 프로젝트를 진행하면서 코드의 재사용성, 유지보수 등을 위하여 모듈, 기능별로 코드를 관리하는 것이 중요하고 편하다고 생각이 될겁니다.\u003c/p\u003e\n\u003cp\u003e하나의 개념( 기능이나 컴포넌트 ) 를 하나의 파일에서 작업을 하는 것이 자연스럽고, 클린 코드에 가깝다고 생각하지만…!\u003c/p\u003e\n\u003cp\u003e그러기 위하여 각각의 파일을 브라우저에 로딩을 해야하고 그만큼의 네트워크 비용이 발생하는 단점도 존재합니다.\u003c/p\u003e\n\u003cp\u003e더군다나, 그 파일은 서로의 스코프를 침범하지 않아야하고 변수 충돌을 위해서 신경써야하고, 순서에 맞게 로딩을 해야하는 번거로움이 있습니다.\u003c/p\u003e\n\u003cp\u003e이러한 것들을 해결하기 위하여 여러 의존 관계에 있는 모듈들을 js 파일 하나로 번들링 하게 되는 \u003ccode\u003e정적 모듈 번들러\u003c/code\u003e Webpack 이 있습니다 !\u003c/p\u003e\n\u003ch2 id=\"Install\"\u003e\u003ca class=\"header-anchor\" href=\"#Install\"\u003e#\u003c/a\u003eInstall\u003c/h2\u003e\n\u003cp\u003ewebpack 패키지와 웹팩 터미널 도구인 \u003ccode\u003ewebpack-cli\u003c/code\u003e 를 설치합니다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ npm install -D webpack webpack-cli\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e설치 후에\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ node_modules/.bin/webpack --help\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e명령어를 이용하여 실행가능한 명령어와 사용방법을 확인할 수 있습니다.\u003c/p\u003e\n\u003ch2 id=\"webpack 기본 명령어\"\u003e\u003ca class=\"header-anchor\" href=\"#webpack 기본 명령어\"\u003e#\u003c/a\u003ewebpack 기본 명령어\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\u003ccode\u003e--mode\u003c/code\u003e : 실행환경을 선택하여 빌드 할 수 있다\u003c/li\u003e\n\u003c/ol\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003edevelopment\u003c/code\u003e , \u003ccode\u003eproduction\u003c/code\u003e, \u003ccode\u003enone\u003c/code\u003e 이 있고\u003c/li\u003e\n\u003cli\u003e보통 \u003ccode\u003eprocess.env.NODE_ENV\u003c/code\u003e 같은 식으로 기본 환경설정 값으로 사용하기도 한다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003e\u003ccode\u003e--entry\u003c/code\u003e : 시작점 경로를 지정하는 옵션이다 가장 밑바탕 기본이 되는 js, ts 를 타겟으로 한다\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--o\u003c/code\u003e , \u003ccode\u003e--output-path\u003c/code\u003e :  번들링 결과물이 위치할 path 입니다.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ node_modules/.bin/webpack --mode development --entry ./src/app.js -o dist\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e위의 명령어 대로 입력을 하게 된다면 \u003ccode\u003esrc/app.js\u003c/code\u003e과 거기서 사용되는 모듈등이 \u003ccode\u003edist\u003c/code\u003e 폴더에 \u003ccode\u003emain.js\u003c/code\u003e 로 번들링 됩니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003col start=\"4\"\u003e\n\u003cli\u003e\u003ccode\u003e--config\u003c/code\u003e : 웹팩 설정파일의 경로를 지정할수 있는데 기본 파일명이 \u003ccode\u003ewebpack.config.js\u003c/code\u003e 이다. webpack.config.js 파일을 통하여 설정을 해줄 수 있습니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e--watch\u003c/code\u003e : 번들링하는 파일, 모듈에 변화가 있으면 감지하여 새로 번들링을 해주게 됩니다. 개발을 하면서 편하게 도움이 됩니다.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2 id=\"webpack.config.js\"\u003e\u003ca class=\"header-anchor\" href=\"#webpack.config.js\"\u003e#\u003c/a\u003ewebpack.config.js\u003c/h2\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003econst path = require(\u0026quot;path\u0026quot;)\n\nmodule.exports = {\n  mode: \u0026quot;development\u0026quot;,\n  entry: {\n    main: \u0026quot;./src/app.js\u0026quot;,\n  },\n  output: {\n    filename: \u0026quot;[name].js\u0026quot;,\n    path: path.resolve(\u0026quot;./dist\u0026quot;),\n  },\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003emode, entry 는 기존 명령어와 동일합니다.\u003c/li\u003e\n\u003cli\u003eoutput 에서 filename 은 지정해 줄 수 있지만 \u003ccode\u003e[name]\u003c/code\u003e 을 사용하게 되면 entry 에서 key 값으로 들어가있는 main으로 filename 이 생성되는 원리입니다.\u003c/li\u003e\n\u003cli\u003eoutput의 path는 절대경로를 사용하기 때문에 \u003ccode\u003epath\u003c/code\u003e 모듈을 통해서 절대경로를 참조해 줍니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"npm script 사용\"\u003e\u003ca class=\"header-anchor\" href=\"#npm script 사용\"\u003e#\u003c/a\u003enpm script 사용\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003epackage.json 을 이용하기 위해서 npm init 을 사용해 주게 됩니다.\u003c/li\u003e\n\u003cli\u003e해당 스크립트는 npm run build 와 같은 방식으로 사용할 수 있습니다\u003c/li\u003e\n\u003cli\u003enpm run watch 를 하면 변화가 일어날때마다 build 가 됩니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"language-json\"\u003e{\n  \u0026quot;scripts\u0026quot;: {\n    \u0026quot;build\u0026quot;: \u0026quot;./node_modules/.bin/webpack\u0026quot;,\n    \u0026quot;watch\u0026quot;: \u0026quot;./node_modules/.bin/webpack --watch\u0026quot;\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003e기본적인 작업은 끝났습니다. 이제는 \u003ccode\u003enpm run build\u003c/code\u003e 명령어로 설정파일에 따라 번들링 하게 됩니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e지금까지는 js 파일에 대하여 번들링을 하는 과정을 거치게 되었습니다.\u003c/p\u003e\n\u003cp\u003e추가적으로 필요한 modules 과 plugins 에 대해서 알아보게 될텐데\nwebpack.config.js 와 함께 보면서 공부하는 편이 좋습니다.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2 id=\"modules\"\u003e\u003ca class=\"header-anchor\" href=\"#modules\"\u003e#\u003c/a\u003emodules\u003c/h2\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ npm install css-loader style-loader url-loader\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3 id=\"1. css-loader\"\u003e\u003ca class=\"header-anchor\" href=\"#1. css-loader\"\u003e#\u003c/a\u003e1. css-loader\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003ewebpack 에서 \u003ccode\u003e.css\u003c/code\u003e 파일을 읽어들이기 위해 사용되는 로더\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"2. style-loader\"\u003e\u003ca class=\"header-anchor\" href=\"#2. style-loader\"\u003e#\u003c/a\u003e2. style-loader\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eHTML 의 header에 style 태그를 이용하여 DOM 에 CSS를 적용해주는 로더\u003c/li\u003e\n\u003cli\u003e기본적으로 style-loader, css-loader 를 같이 사용하는 편이다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // webpack.config.js\n  module: {\n    rules: [\n      {\n        test: /\\.css$/,\n        use: [\n          // 개발환경에서는 css-loader에 의해 변경된 css를 적용하기 위해 style-loader를 사용합니다\n          // 프로덕션 환경에서는 별도의 CSS파일을 추출하는 플러그인으로 적용하여 다른 loader 를 사용합니다.\n          process.env.NODE_ENV === \u0026quot;production\u0026quot;\n          ? MiniCssExtractPlugin.loader // 프로덕션 환경\n          : \u0026quot;style-loader\u0026quot;, // 개발 환경\n          \u0026quot;css-loader\u0026quot;,\n        ],\n      },\n    ]\n  }\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3 id=\"3. url-loader\"\u003e\u003ca class=\"header-anchor\" href=\"#3. url-loader\"\u003e#\u003c/a\u003e3. url-loader\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003ebackground-image 등에서 사용되는 파일들을 불러오는데 쓰인다.\u003c/li\u003e\n\u003cli\u003e용량에 따라서 설정을 달리 할 수 있는데, limit 으로 설정한 byte 이하의 이미지 등은 base64로 인코딩하여 javascript 문자열로 변경하여 로딩을 하게 되고 크보다 큰 용량은 그냥 넘겨주게 된다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // webpack.config.js\n  module: {\n    rules: [\n      {\n        test: /\\.(png|jpg|gif|svg)$/, // png, jpg, gif, svg 확장자로 끝나는 파일들은 url-loader로 처리하겠다는 의미\n        loader: \u0026quot;url-loader\u0026quot;, // 용량이 적은 파일들은 Data URI Scheme을 이용해서 Base64로 인코딩하여 문자열 형태로 소스코드에 넣는 방식을 이용한다.\n        options: {\n          // publicPath: './dist/', // 아까는 index.html 파일이 src 폴더 위에 있었지만 HtmlWebpackPlugin 설치 후에는 src 폴더 안으로 들어갔기 때문에 빌드된 결과물이 dist 폴더안에 index.html이 자동으로 생기므로 앞에 prefix로 ./dist/ 경로를 붙이지 않아도 된다.\n          name: \u0026quot;[name].[ext]?[hash]\u0026quot;,\n          limit: 20000, // 파일 용량 세팅(20[KB]로 세팅함)\n          // 이미지 파일을 처리할 때 20[KB] 미만의 파일들은 url-loader를 이용해서 Base64로 인코딩하여 자바스크립트 문자열로 변환한다.\n          // 만약 20[KB] 이상인 경우 file-loader를 이용하게 된다.\n          // 그래서 20[KB] 이하인 nyancat.jpg는 빌드된 main.js 파일 안에 url로 처리되어 들어간다.\n          // 20[KB] 이상인 bg.png는 file-loader로 처리되어 bg.png 파일이 dist 폴더 안에 들어오게 된다.\n        },\n      },\n    ]\n  }\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3 id=\"4. babel\"\u003e\u003ca class=\"header-anchor\" href=\"#4. babel\"\u003e#\u003c/a\u003e4. babel\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ npm install babel-loader @babel/core @babel/preset-env\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e각각 브라우저 마다 매년 새롭게 도입되는 ES6+ 의 지원비율이 제각각이다.\u003c/li\u003e\n\u003cli\u003eIE 를 비롯한 구형 브라우저에서는 ES6+ 문법이 제대로 작동이 안될 수도 있고, 모듈 로더가 작동이 잘 안될 수도 있다.\u003c/li\u003e\n\u003cli\u003e사용자가 그런것들을 고려하면서 코드를 작성하기에 불편함이 많기에 각각의 브라우저의 지원사항에 맞게 맞춰서 모듈 번들러를 사용하여 동작하게 할 수 있다.\u003c/li\u003e\n\u003cli\u003eArrow Function, optional chaining 등을 ES5 이하의 문법으로 번들링해주는 로더이다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebabel.config.js\u003c/code\u003e , \u003ccode\u003e.babelrc\u003c/code\u003e 등의 파일에 설정을 해준다.\u003c/li\u003e\n\u003cli\u003e물론 \u003ccode\u003ewebpack.config.js\u003c/code\u003e 에서도 설정해주어야한다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // webpack.config.js\n  const HtmlWebpackPlugin = require(\u0026quot;html-webpack-plugin\u0026quot;);\n  \n  module: {\n    rules: [\n      {\n        // 다음과 같이 babel-loader로 webpack과 함께 사용하면 훨씬 단순하고 자동화된 프론트엔드 개발환경을 갖출 수 있다.\n        test: /\\.js$/,\n        loader: \u0026quot;babel-loader\u0026quot;,\n        exclude: /node_modules/,\n      },\n    ],\n  }\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // babel.config.js\n  const MiniCssExtractPlugin = require(\u0026quot;mini-css-extract-plugin\u0026quot;);\n\n  module.exports = {\n    presets: [\n      ['@babel/preset-env', {\n        targets: {\n          chrome: '79',\n          ie: '11' // IE11에서도 동작하도록 설정\n          // 참고로 IE11에서 async/await 나 generator 구문을 사용하기 위해서는 regenerator-runtime 라이브러리를 추가로 설치해야 한다.\n        },\n        // babel이 변환하지 못하는 코드는 polyfill이라 부르는 코드조각을 불러와 결과물에 로딩해서 해결한다.\n        useBuiltIns: 'usage', // polyfill 사용 여부 설정\n        corejs: {\n          version: 2 // polyfill 버전 지정\n        }\n      }]\n    ]\n  }\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"plugins\"\u003e\u003ca class=\"header-anchor\" href=\"#plugins\"\u003e#\u003c/a\u003eplugins\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eplugin 들은 써드 파티 패키지로 동작하게 됩니다. \u003ccode\u003emodule\u003c/code\u003e을 이용하여 build 하는 과정을 거친 후, 후처리 하는 동안 작동하고, 사용되게 됩니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"1. HtmlWebpackPlugin\"\u003e\u003ca class=\"header-anchor\" href=\"#1. HtmlWebpackPlugin\"\u003e#\u003c/a\u003e1. HtmlWebpackPlugin\u003c/h3\u003e\n\u003cp\u003e기본적으로 \u003ccode\u003eHtml\u003c/code\u003e 파일이 번들링이 안되기 때문에 plugin 으로 처리해 주게 된다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ npm install -D html-webpack-plugin\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003enode 에서 설치 후에 webpack.config.js 설정을 한 후 실행하게 된다.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // webpack.config.js\n  plugins: [\n    new HtmlWebpackPlugin({\n      template: \u0026quot;./src/index.html\u0026quot;,\n      templateParameters: {\n        env: process.env.NODE_ENV === \u0026quot;development\u0026quot; ? \u0026quot;개발\u0026quot; : \u0026quot;배포\u0026quot;,\n      },\n    }),\n  ]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cblockquote\u003e\n\u003cp\u003e./src/index.html\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cpre\u003e\u003ccode class=\"language-html\"\u003e\u0026lt;!DOCTYPE html\u0026gt;\n\u0026lt;html lang=\u0026quot;en\u0026quot;\u0026gt;\n  \u0026lt;head\u0026gt;\n    \u0026lt;title\u0026gt;Webpack Test (\u0026lt;%= env %\u0026gt;)\u0026lt;/title\u0026gt;\n  \u0026lt;/head\u0026gt;\n  \u0026lt;body\u0026gt;\n    \u0026lt;div id=\u0026quot;app\u0026quot;\u0026gt;\u0026lt;/div\u0026gt;\n  \u0026lt;/body\u0026gt;\n\u0026lt;/html\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e위와 같이 예시로\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003etitle을 ejs 문법을 사용하여 작성한 Html 파일을 \u003ccode\u003etemplateParameters\u003c/code\u003e 와 연동시켜서 env 변수값을 이용하여 동적으로 생성할 수 있다.\u003c/li\u003e\n\u003cli\u003e또한 기본적으로는 기본적인 로딩 스크립트가 있어야 하지만 Webpack 에서 빌드한 결과물을 자동으로 주입해주기 때문에 제거하였다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"2. mini-css-extract-plugin\"\u003e\u003ca class=\"header-anchor\" href=\"#2. mini-css-extract-plugin\"\u003e#\u003c/a\u003e2. mini-css-extract-plugin\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e스타일시트 코드만 뽑아서 별도의 CSS파일로 만들어 역할에 따라 파일을 분리해 줍니다.\u003c/li\u003e\n\u003cli\u003eCSS를 별도 파일로 뽑아내는 플러그인 입니다.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproduction\u003c/code\u003e mode에는 plugin 에 추가해 주고 해당 모드일 때 \u003ccode\u003e.css\u003c/code\u003e loader 에서도 작동하게 됩니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003e$ npm install -D mini-css-extract-plugin\n\u003c/code\u003e\u003c/pre\u003e\n\u003cpre\u003e\u003ccode class=\"language-js\"\u003e  // webpack.config.js\n  plugins: [\n    // MiniCssExtractPlugin은 JS에서 CSS 코드를 뽑아내는 것이기 때문에 굳이 development 환경에서는 JS 파일 하나로 빌드하는 것이 조금 더 빠르기 때문에 굳이 이 플러그인을 쓸 필요가 없다.\n    // production 환경에서만 플러그인이 실행되도록 삼항 연산자로 작성하자.\n    ...(process.env.NODE_ENV === \u0026quot;production\u0026quot;\n      ? [new MiniCssExtractPlugin({ filename: \u0026quot;[name].css\u0026quot; })]\n    : []),\n  ]\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"Referrence\"\u003e\u003ca class=\"header-anchor\" href=\"#Referrence\"\u003e#\u003c/a\u003eReferrence\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/webpack/webpack#install\"\u003ewebpack github\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html\"\u003e프론트엔드 개발 환경의 의해 : 웹팩\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://kschoi.github.io/webpack/webpack-basic/\"\u003ewebpack 기본 이해하기\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://poiemaweb.com/es6-babel-webpack-1\"\u003ebabel\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/wally-wally/Frontend_Development_Environment\"\u003eWally-wally\u003c/a\u003e\u003c/p\u003e\n","anchor":"\u003cli\u003e\u003ca class=\"anchor-tag h1_tags\" href=\"#Webpack\"\u003eWebpack\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#Webpack 을 사용하는 이유\"\u003eWebpack 을 사용하는 이유\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#Install\"\u003eInstall\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#webpack 기본 명령어\"\u003ewebpack 기본 명령어\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#webpack.config.js\"\u003ewebpack.config.js\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#npm script 사용\"\u003enpm script 사용\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#modules\"\u003emodules\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#1. css-loader\"\u003e1. css-loader\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#2. style-loader\"\u003e2. style-loader\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#3. url-loader\"\u003e3. url-loader\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#4. babel\"\u003e4. babel\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#plugins\"\u003eplugins\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#1. HtmlWebpackPlugin\"\u003e1. HtmlWebpackPlugin\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h3_tags\" href=\"#2. mini-css-extract-plugin\"\u003e2. mini-css-extract-plugin\u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca class=\"anchor-tag h2_tags\" href=\"#Referrence\"\u003eReferrence\u003c/a\u003e\u003c/li\u003e"},"__N_SSG":true},"page":"/posts/[...id]","query":{"id":["JS","Webpack 이해와 설정"]},"buildId":"euVy20AbKgvJe8vyBC1MM","nextExport":false,"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-040103c5c51c5268569e.js"></script><script src="/_next/static/chunks/main-3462db42ddf64824c665.js" async=""></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.9d524150d48315f49e80.js" async=""></script><script src="/_next/static/chunks/commons.0d3242e40eb08521ee3c.js" async=""></script><script src="/_next/static/chunks/pages/_app-d6b9adca8a08a181a345.js" async=""></script><script src="/_next/static/chunks/fac50134203cbc545d54cf72a9b94a4ba28f5ae7.ff2a065ed04022de0792.js" async=""></script><script src="/_next/static/chunks/3c054efa82999c49f598079c6742f61697ff1d2b.626d3ab021131eea828e.js" async=""></script><script src="/_next/static/chunks/pages/posts/%5B...id%5D-11788b8a639362193f16.js" async=""></script><script src="/_next/static/euVy20AbKgvJe8vyBC1MM/_buildManifest.js" async=""></script><script src="/_next/static/euVy20AbKgvJe8vyBC1MM/_ssgManifest.js" async=""></script></body></html>
